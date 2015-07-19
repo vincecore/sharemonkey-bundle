@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="command.listen_channel" class="ShareMonkey\ShareMonkeyBundle\Command\ListenCommand">
+            <argument type="service" id="service.slack.real_time_client" />
+            <argument type="service" id="service.slack.loop" />
+            <argument type="service" id="service.slack.incoming_links_processor" />
+            <argument type="service" id="service.slack.reaction_processor" />
+            <tag name="console.command" />
+        </service>
+
+        <service id="command.import_slack_users" class="ShareMonkey\ShareMonkeyBundle\Command\ImportSlackUsersCommand">
+            <argument type="service" id="service.slack.api_client" />
+            <argument type="service" id="service.slack.loop" />
+            <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
+            <tag name="console.command" />
+        </service>
+    </services>
+</container>

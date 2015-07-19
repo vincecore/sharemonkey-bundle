@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="services/commands.xml"/>
+        <import resource="services/controllers.xml"/>
+        <import resource="services/repositories.xml"/>
+    </imports>
+    <services>
+        <service id="service.slack.incoming_links_processor" class="ShareMonkey\Service\Slack\IncomingLinkProcessor" public="false">
+            <argument type="service" id="repository.user" />
+            <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
+            <argument type="service" id="logger" />
+        </service>
+
+        <service id="service.slack.reaction_processor" class="ShareMonkey\Service\Slack\ReactionProcessor" public="false">
+            <argument type="service" id="repository.user" />
+            <argument type="service" id="repository.link" />
+            <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
+            <argument type="service" id="logger" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="service.slack.loop" class="React\EventLoop\LoopInterface" public="false">
+            <factory class="React\EventLoop\Factory" method="create" />
+        </service>
+
+        <service id="service.slack.api_client" class="ShareMonkey\Service\Slack\ApiClient" public="false">
+            <argument type="service" id="service.slack.loop" />
+            <argument type="string">%slack_token%</argument>
+        </service>
+
+        <service id="service.slack.real_time_client" class="ShareMonkey\Service\Slack\RealTimeClient" public="false">
+            <argument type="service" id="service.slack.loop" />
+            <argument type="string">%slack_token%</argument>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,19 @@
+{
+  "name": "sharemonkey/sharemonkey-bundle",
+  "type": "symfony-bundle",
+  "description": "The glue between symfony and sharemonkey",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vincent Verhasselt",
+      "email": "vincent.verhasselt@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "symfony/framework-bundle": "~2.3"
+  },
+  "autoload": {
+    "psr-4": { "ShareMonkey\\ShareMonkeyBundle\\": "" }
+  }
+}
