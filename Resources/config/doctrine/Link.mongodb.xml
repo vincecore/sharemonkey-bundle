@@ -1,0 +1,23 @@
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                    http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+
+    <document name="ShareMonkey\Document\Link" repository-class="ShareMonkey\Repository\LinkRepository">
+        <field fieldName="id" id="true" />
+        <field fieldName="createdTs" type="date" />
+        <field fieldName="slackId" type="string" />
+        <field fieldName="title" type="string" />
+        <field fieldName="url" type="string" />
+        <field fieldName="author" type="string" />
+        <embed-many field="likes" target-document="ShareMonkey\Document\Like" />
+        <embed-many field="dislikes" target-document="ShareMonkey\Document\Dislike" />
+        <embed-many field="comments" target-document="ShareMonkey\Document\Comment" />
+        <embed-many field="clicks" target-document="ShareMonkey\Document\Click" />
+        <reference-one target-document="ShareMonkey\Document\User" field="user">
+            <cascade>
+                <all />
+            </cascade>
+        </reference-one>
+    </document>
+</doctrine-mongo-mapping>
