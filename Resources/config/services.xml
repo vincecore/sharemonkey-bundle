@@ -12,6 +12,7 @@
         <service id="service.slack.incoming_links_processor" class="ShareMonkey\Service\Slack\IncomingLinkProcessor" public="false">
             <argument type="service" id="repository.user" />
             <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
+            <argument>%slack_bot_id%</argument>
             <argument type="service" id="logger" />
         </service>
 

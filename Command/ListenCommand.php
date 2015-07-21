@@ -4,6 +4,7 @@ namespace ShareMonkey\ShareMonkeyBundle\Command;
 
 use React\EventLoop\LoopInterface;
 use ShareMonkey\Model\Slack\Message;
+use ShareMonkey\Model\Slack\Reaction;
 use ShareMonkey\Service\Slack\IncomingLinkProcessor;
 use ShareMonkey\Service\Slack\ReactionProcessor;
 use ShareMonkey\Service\Slack\RealTimeClient;
