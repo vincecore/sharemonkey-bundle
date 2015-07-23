@@ -22,7 +22,7 @@ class HomeController
     /**
      * @param Request $request
      * @return Response
-     * @Template("Home/index.html.twig")
+     * @Template()
      */
     public function indexAction(Request $request)
     {

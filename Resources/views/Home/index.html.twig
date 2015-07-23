@@ -1,0 +1,64 @@
+{% extends 'ShareMonkeyBundle::base.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="large-12 columns">
+            {#
+            <div class="row">
+                <dl class="sub-nav right">
+                    <dt>Sort:</dt>
+                    <dd class="active"><a href="#">Recent</a></dd>
+                    <dd><a href="#">Top</a></dd>
+                </dl>
+            </div>
+            #}
+            {% for link in links %}
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p style="margin-bottom: 0">
+                            <a href="{{ link.url }}">{{ link.title }}</a><br />
+                            <small><a href="{{ link.url }}" class="url">{{ link.url|length > 150 ? link.url|slice(0, 150) ~ '...' : link.url }}</a></small><br />
+                            <span class="meta">
+                                <span class="about">by <span class="author">{{ link.author }}</span> on <span class="date">{{ link.createdTs|date('d/m H:i') }}</span></span>
+                                /
+                                <span class="reactions">
+                                    <i class="fi-graph-trend" title="clicks"></i> <span class="count">{{ link.numberOfClicks }}</span>
+                                    <i class="fi-like" title="likes"></i> <span class="count">{{ link.numberOfLikes }}</span>
+                                    <i class="fi-dislike" title="dislikes"></i> <span class="count">{{ link.numberOfDislikes }}</span>
+                                    <i class="fi-comments" title="comments"></i> <span class="count">{{ link.numberOfComments }}</span>
+                                </span>
+                                {% for tag in link.tags %}
+                                    {% if loop.first %}/{% endif %}
+                                    <span class="round secondary label">{{ tag.value }}</span>
+                                {% endfor %}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <hr />
+            {% endfor %}
+        </div>
+        {#
+        <div class="large-2 columns">
+            <p class="meta"><span class="author">Vincent</span> shared a <span class="media-type">video</span></p>
+            <p class="meta"><span class="author">Vincent</span> shared a <span class="media-type">presentation</span></p>
+            <p class="meta"><span class="author">Vincent</span> shared a <span class="media-type">article</span></p>
+            <p class="meta"><span class="author">Vincent</span> made a <span class="media-type">comment</span></p>
+        </div>#}
+    </div>
+    <style>
+        .url {
+            color: #888;
+        }
+        .meta {
+            font-size: 14px;
+            color: #AAA;
+        }
+        .meta .author, .meta .date, .meta .count, .meta .media-type {
+            font-size: 14px;
+            color: #555;
+        }
+        .meta .label{
+            font-size: 11px;
+        }
+    </style>
+{% endblock %}

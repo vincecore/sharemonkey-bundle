@@ -64,6 +64,7 @@ class ImportSlackUsersCommand extends Command
     {
         foreach ($users as $slackUser) {
             if ($slackUser->isDeleted() || $slackUser->data['is_bot'] === true) {
+                $output->writeln(sprintf('Skipping %s (%s)', $slackUser->data['name'], $slackUser->getId()));
                 continue;
             }
 
