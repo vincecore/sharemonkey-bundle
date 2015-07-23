@@ -9,6 +9,7 @@
         <field fieldName="slackId" type="string" />
         <field fieldName="title" type="string" />
         <field fieldName="url" type="string" />
+        <embed-many field="tags" target-document="ShareMonkey\Document\Tag" />
         <field fieldName="author" type="string" />
         <embed-many field="likes" target-document="ShareMonkey\Document\Like" />
         <embed-many field="dislikes" target-document="ShareMonkey\Document\Dislike" />
