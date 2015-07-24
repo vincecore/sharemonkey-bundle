@@ -6,7 +6,10 @@
     <services>
         <service id="controller.home" class="ShareMonkey\ShareMonkeyBundle\Controller\HomeController">
             <argument type="service" id="repository.link" />
-            <argument type="service" id="service.slack.reaction_processor" />
+        </service>
+
+        <service id="controller.tag" class="ShareMonkey\ShareMonkeyBundle\Controller\TagController">
+            <argument type="service" id="repository.link" />
         </service>
     </services>
 </container>

@@ -1,0 +1,24 @@
+{% extends 'ShareMonkeyBundle::base.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="large-12 columns">
+            {% include 'ShareMonkeyBundle:_partials:_links.html.twig' with {'links' : links} %}
+        </div>
+    </div>
+    <style>
+        .url {
+            color: #888;
+        }
+        .meta {
+            font-size: 14px;
+            color: #AAA;
+        }
+        .meta .author, .meta .date, .meta .count, .meta .media-type {
+            font-size: 14px;
+            color: #555;
+        }
+        .meta .label{
+            font-size: 11px;
+        }
+    </style>
+{% endblock %}
