@@ -7,7 +7,7 @@ use ShareMonkey\Model\Slack\Message;
 use ShareMonkey\Model\Slack\Reaction;
 use ShareMonkey\Service\Slack\IncomingLinkProcessor;
 use ShareMonkey\Service\Slack\ReactionProcessor;
-use ShareMonkey\Service\Slack\RealTimeClient;
+use ShareMonkey\ShareMonkeyBundle\Service\Slack\RealTimeClient;
 use Slack\Payload;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

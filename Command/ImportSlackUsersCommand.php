@@ -6,7 +6,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use React\EventLoop\LoopInterface;
 use ShareMonkey\Model\Slack\UserId;
 use ShareMonkey\Document\User;
-use ShareMonkey\Service\Slack\ApiClient;
+use ShareMonkey\ShareMonkeyBundle\Service\Slack\ApiClient;
 use Slack\User as SlackUser;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

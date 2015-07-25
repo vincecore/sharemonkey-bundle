@@ -28,12 +28,12 @@
             <factory class="React\EventLoop\Factory" method="create" />
         </service>
 
-        <service id="service.slack.api_client" class="ShareMonkey\Service\Slack\ApiClient" public="false">
+        <service id="service.slack.api_client" class="ShareMonkey\ShareMonkeyBundle\Service\Slack\ApiClient" public="false">
             <argument type="service" id="service.slack.loop" />
             <argument type="string">%slack_token%</argument>
         </service>
 
-        <service id="service.slack.real_time_client" class="ShareMonkey\Service\Slack\RealTimeClient" public="false">
+        <service id="service.slack.real_time_client" class="ShareMonkey\ShareMonkeyBundle\Service\Slack\RealTimeClient" public="false">
             <argument type="service" id="service.slack.loop" />
             <argument type="string">%slack_token%</argument>
         </service>
