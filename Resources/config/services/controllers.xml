@@ -4,12 +4,19 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <service id="controller.security" class="ShareMonkeyApp\Controller\SecurityController">
+            <argument type="service" id="security.authentication_utils" />
+        </service>
+
         <service id="controller.home" class="ShareMonkey\ShareMonkeyBundle\Controller\HomeController">
             <argument type="service" id="repository.link" />
         </service>
 
         <service id="controller.tag" class="ShareMonkey\ShareMonkeyBundle\Controller\TagController">
             <argument type="service" id="repository.link" />
+        </service>
+
+        <service id="controller.link.create" class="ShareMonkey\ShareMonkeyBundle\Controller\Link\CreateController">
         </service>
     </services>
 </container>

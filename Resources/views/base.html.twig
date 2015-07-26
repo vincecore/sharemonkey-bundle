@@ -16,11 +16,55 @@
     </style>
 </head>
 <body>
-<div class="panel">
-    <div class="row">
-        <div class="small-12 columns">
-            <h2><a href="{{ path('homepage') }}">ShareMonkey</a> 🐒</h2>
-        </div>
+<div class="row" style="margin-bottom: 20px">
+    <div class="small-12 columns">
+        <nav class="top-bar" data-topbar="" role="navigation" style="background-color: #008CBA">
+            <!-- Title -->
+            <ul class="title-area">
+                <li class="name"><h1><a href="{{ path('homepage') }}">ShareMonkey 🐒</a></h1></li>
+                <!-- Mobile Menu Toggle -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+            <!-- Top Bar Section -->
+            <section class="top-bar-section">
+                {#
+                <!-- Top Bar Left Nav Elements -->
+                <ul class="left">
+                    <!-- Search | has-form wrapper -->
+                    <li class="has-form">
+                        <div class="row collapse">
+                            <div class="large-8 small-9 columns">
+                                <input type="text" placeholder="Find Stuff">
+                            </div>
+                            <div class="large-4 small-3 columns">
+                                <a href="#" class="alert button expand">Search</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                #}
+                <!-- Top Bar Right Nav Elements -->
+                <ul class="right">
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="has-form" style="background-color: #008CBA">
+                            <a href="{{ path('link.create') }}" class="button" style="background-color: #000000">Add Link</a>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="#" style="background-color: #008CBA"><i class="fi-torso" title="logged in as"></i> {{ app.user.username }}</a>
+                            <ul class="dropdown">
+                                <li><a href="{{ path('logout') }}" style="background-color: #008CBA">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="has-form" style="background-color: #008CBA">
+                            <a href="{{ path('login') }}" class="button" style="background-color: #000000">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+            </section>
+
+        </nav>
     </div>
 </div>
 {% block body %}
