@@ -45,7 +45,7 @@
                 #}
                 <!-- Top Bar Right Nav Elements -->
                 <ul class="right">
-                    {% if is_granted('ROLE_USER') %}
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="has-form" style="background-color: #008CBA">
                             <a href="{{ path('link.create') }}" class="button" style="background-color: #000000">Add Link</a>
                         </li>
